@@ -18,16 +18,20 @@ public class Main {
         Venda venda2 = new Venda(cliente2, LocalDate.now(), 1000);
         Venda venda3 = new Venda(cliente3, LocalDate.now(), 800);
 
-        // Definido
-        DescontoStrategy descontoFixo = new DescontoDefinido(10);
-        System.out.println("Venda 1 - Desconto fixo: R$ " + descontoFixo.calcular(venda1));
+        if (venda1.getValorTotal() < 0 || venda2.getValorTotal() < 0 || venda3.getValorTotal() < 0) {
+            System.out.println("Não podemos ter valor total menor que zero");
+        } else {
+            // Definido
+            DescontoStrategy descontoFixo = new DescontoDefinido(10);
+            System.out.println("Venda 1 - Desconto fixo: R$ " + descontoFixo.calcular(venda1));
 
-        // Progressivo
-        DescontoStrategy descontoProgressivo = new DescontoProgressivo();
-        System.out.println("Venda 2 - Desconto progressivo: R$ " + descontoProgressivo.calcular(venda2));
+            // Progressivo
+            DescontoStrategy descontoProgressivo = new DescontoProgressivo();
+            System.out.println("Venda 2 - Desconto progressivo: R$ " + descontoProgressivo.calcular(venda2));
 
-        // Aniversário
-        DescontoStrategy descontoAniversario = new DescontoAniversario();
-        System.out.println("Venda 3 - Desconto aniversário: R$ " + descontoAniversario.calcular(venda3));
+            // Aniversário
+            DescontoStrategy descontoAniversario = new DescontoAniversario();
+            System.out.println("Venda 3 - Desconto aniversário: R$ " + descontoAniversario.calcular(venda3));
+        }
     }
 }

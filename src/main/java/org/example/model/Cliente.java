@@ -11,6 +11,8 @@ public class Cliente {
     private String nome;
     private LocalDate dataNascimento;
 
+    private String TipoDesconto;
+
     public Cliente() {/**/}
 
     public Cliente(long id, String nome, LocalDate dataNascimento) {
@@ -42,4 +44,5 @@ public class Cliente {
     public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
+
 }

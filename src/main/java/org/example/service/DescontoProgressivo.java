@@ -1,13 +1,23 @@
 package org.example.service;
 
+import org.example.Main;
 import org.example.model.Venda;
 
 public class DescontoProgressivo implements DescontoStrategy {
 
     @Override
     public double calcular(Venda venda) {
-        double percentual = venda.getValorTotal() / 25 / 100;
-        percentual = Math.min(percentual, 0.20);
-        return venda.getValorTotal() * percentual;
+        double valor = venda.getValorTotal();
+
+        if (valor == 0) {
+            return 0.0;
+        }
+
+        final double PERCENTUAL_MAXIMO = 0.20;
+        final double DIVISOR = 2500.0;
+
+        double percentual = valor / DIVISOR;
+        percentual = Math.min(percentual, PERCENTUAL_MAXIMO);
+        return valor * percentual;
     }
 }

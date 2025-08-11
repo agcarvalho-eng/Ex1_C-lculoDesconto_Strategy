@@ -12,6 +12,12 @@ public class DescontoDefinido implements DescontoStrategy {
 
     @Override
     public double calcular(Venda venda) {
-        return venda.getValorTotal() * percentual / 100;
+        double valor = venda.getValorTotal();
+
+        if (valor == 0) {
+            return 0.0;
+        }
+
+        return valor * percentual / 100;
     }
 }

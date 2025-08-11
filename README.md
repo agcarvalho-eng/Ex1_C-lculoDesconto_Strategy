@@ -8,14 +8,23 @@ Assim, basta trocar a estratégia para mudar a forma de calcular o desconto.
 Poderíamos criar um único método de cálculo com vários if/else ou switch-case para cada tipo de desconto. Por exemplo:
 
 public double calcularDesconto(String tipo, double valor, LocalDate aniversarioCliente) {
+
     if (tipo.equals("DEFINIDO")) {
+    
         return valor * 0.10;
+        
     } else if (tipo.equals("PROGRESSIVO")) {
+    
         double desconto = valor / 25 / 100;
+        
         return valor * Math.min(desconto, 0.20);
+        
     } else if (tipo.equals("ANIVERSARIO")) {
+    
         if (aniversarioCliente.equals(LocalDate.now())) {
+        
             return valor * 0.15;
+            
         }
     }
     return 0;

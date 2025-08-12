@@ -19,7 +19,7 @@ public class Main {
         Venda venda3 = new Venda(cliente3, LocalDate.now(), 800);
 
         if (venda1.getValorTotal() < 0 || venda2.getValorTotal() < 0 || venda3.getValorTotal() < 0) {
-            System.out.println("Não podemos ter valor total menor que zero");
+            System.out.println("Não podemos ter valor total menor que zero!");
         } else {
             // Definido
             DescontoStrategy descontoFixo = new DescontoDefinido(10);
